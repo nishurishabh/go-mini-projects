@@ -1,0 +1,18 @@
+package conversion
+
+import (
+	"errors"
+	"strconv"
+)
+
+func StringToFloat(strings []string) ([]float64, error) {
+	var floats []float64
+	for _, v := range strings {
+		floatVal, err := strconv.ParseFloat(v, 64)
+		if err != nil {
+			return nil, errors.New("failed to convert string to float")
+		}
+		floats = append(floats, floatVal)
+	}
+	return floats, nil
+}
